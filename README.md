@@ -1,7 +1,7 @@
 # EscapeRoom
 Escape Room Cover Letter Project
 
-Works with python version 3.13.2 or later
+Works with Python version 3.13.2 or later
 
 Download .zip and extract that change directory to ../EscapeRoom-main
 
