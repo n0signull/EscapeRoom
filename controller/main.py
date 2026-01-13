@@ -18,4 +18,3 @@ def loop():
     while True:
         engine.update()
         time.sleep(0.1)
-
