@@ -12,7 +12,7 @@ class InputManager:
     def check(self, input_name, action):
         return input_name in self.simulated_inputs
 
-    # Simulation helper
+    # Simulation helpers
     def trigger(self, input_name):
         self.simulated_inputs.add(input_name)
 
