@@ -1,0 +1,10 @@
+sequence:
+  - input: button_a
+    action: press
+    max_delay: 5
+
+  - input: switch_b
+    action: toggle
+    max_delay: 5
+
+timeout: 20
