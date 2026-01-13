@@ -39,7 +39,7 @@ class PuzzleEngine:
                 self.step_start_time = now
                 logging.info("Puzzle started")
 
-        if self.state == PuzzleState.IN_PROGRESS:
+        elif self.state == PuzzleState.IN_PROGRESS:
             if now - self.puzzle_start_time > self.config["timeout"]:
                 logging.warning("Puzzle timeout")
                 self.reset()
