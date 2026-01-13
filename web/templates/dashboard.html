@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Escape Room Puzzle Controller</title>
+</head>
+<body>
+    <h1>Puzzle Controller</h1>
+    <div id="status">Loading...</div>
+    <button onclick="fetch('/reset')">Reset</button>
+    <button onclick="fetch('/solve')">Force Solve</button>
+
+    <script>
+        async function update() {
+            const res = await fetch('/status');
+            const data = await res.json();
+            document.getElementById('status').innerText =
+                `State: ${data.state}, Step: ${data.step}`;
+        }
+        setInterval(update, 1000);
+        update();
+    </script>
+</body>
+</html>
