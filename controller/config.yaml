@@ -1,9 +1,18 @@
-sequence:
-  - input: button_a
-    action: press
-    max_delay: 5
-  - input: switch_b
-    action: toggle
-    max_delay: 5
+# Puzzle configuration file
+# Defines the order of required inputs and timing constraints
 
+# Ordered list of puzzle steps
+sequence:
+  # Step 1: Player must press Button A
+  - input: button_a      # Logical name of the input device
+    action: press        # Expected action (press, toggle, hold, etc.)
+    max_delay: 5         # Maximum time (seconds) allowed to complete this step
+
+  # Step 2: Player must toggle Switch B
+  - input: switch_b      # Logical name of the input device
+    action: toggle       # Expected action for this input
+    max_delay: 5         # Time limit for this step after the previous one
+
+# Total time (seconds) allowed to solve the entire puzzle
+# If exceeded, the puzzle will automatically reset
 timeout: 20
