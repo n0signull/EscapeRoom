@@ -5,17 +5,62 @@
 </head>
 <body>
     <h1>Puzzle Controller</h1>
+
+    <!-- Puzzle state -->
     <div id="status">Loading...</div>
+
+    <!-- Step info -->
+    <div id="step-info"></div>
+
+    <!-- Math input -->
+    <div id="math-input-container" style="display:none;">
+        <input type="number" id="math-answer" placeholder="Enter math answer">
+        <button onclick="submitMathAnswer()">Submit</button>
+    </div>
+
+    <!-- Control buttons -->
     <button onclick="fetch('/reset')">Reset</button>
     <button onclick="fetch('/solve')">Force Solve</button>
 
     <script>
+        // Fetch puzzle status and update UI
         async function update() {
             const res = await fetch('/status');
             const data = await res.json();
+
+            // Show puzzle state
             document.getElementById('status').innerText =
                 `State: ${data.state}, Step: ${data.step}`;
+
+            // Show math step info if relevant
+            const stepInfo = document.getElementById('step-info');
+            const mathContainer = document.getElementById('math-input-container');
+
+            if (data.current_step_type === 'math') {
+                stepInfo.innerText = `Math Question: ${data.question}`;
+                mathContainer.style.display = 'block';
+            } else {
+                stepInfo.innerText = '';
+                mathContainer.style.display = 'none';
+            }
         }
+
+        // Submit math answer to backend
+        async function submitMathAnswer() {
+            const answer = document.getElementById('math-answer').value;
+            if (answer === "") return;
+
+            await fetch('/submit_math', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ answer: Number(answer) })
+            });
+
+            // Clear input field
+            document.getElementById('math-answer').value = '';
+        }
+
+        // Update UI every second
         setInterval(update, 1000);
         update();
     </script>
