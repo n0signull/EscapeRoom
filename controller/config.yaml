@@ -13,6 +13,12 @@ sequence:
     action: toggle       # Expected action for this input
     max_delay: 5         # Time limit for this step after the previous one
 
+  # Math step
+  - type: math
+    question: "2 + 3"
+    answer: 5
+    max_delay: 10  # optional timeout to answer
+
 # Total time (seconds) allowed to solve the entire puzzle
 # If exceeded, the puzzle will automatically reset
 timeout: 20
