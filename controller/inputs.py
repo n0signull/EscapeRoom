@@ -18,6 +18,7 @@ class InputManager:
     def __init__(self):
         # Stores currently active simulated inputs
         self.simulated_inputs = set()
+        self.simulated_math_answer = None  # stores simulated math input
 
     def any_active(self):
         """
@@ -38,6 +39,16 @@ class InputManager:
                  Included for future expansion and hardware parity
         """
         return input_name in self.simulated_inputs
+
+    # -----------------------------
+    # Math inputs
+    # -----------------------------
+    def get_math_answer(self):
+        """
+        Returns the math answer if provided.
+        None if player hasn't answered yet.
+        """
+        return self.simulated_math_answer
 
     # -----------------------------
     # Simulation helper methods
