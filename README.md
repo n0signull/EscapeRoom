@@ -3,16 +3,16 @@ Escape Room Cover Letter Project
 
 Works with Python version 3.13.2 or later
 
-Download .zip and extract that change directory to ../EscapeRoom-main
+1) Download .zip and extract that change directory to ../EscapeRoom-main
 
-python -m venv venv
+2) python -m venv venv
 
-pip install -r requirements.txt
+3) pip install -r requirements.txt
 
-pip install pyyaml
+4) pip install pyyaml
 
-python -m pip show pyyaml 
+5) python -m pip show pyyaml 
 
-python run.py
+6) python run.py
 
-Visit http://localhost:5000
+7) Visit http://localhost:5000
